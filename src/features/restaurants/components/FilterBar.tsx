@@ -9,8 +9,8 @@ interface FilterBarProps {
   onCuisineChange: (c: string) => void;
   openNow: boolean;
   onOpenNowChange: (v: boolean) => void;
-  prices: PriceLevel[];
-  onPricesChange: (p: PriceLevel[]) => void;
+  prices: number[];
+  onPricesChange: (p: number[]) => void;
 }
 
 export function FilterBar(props: FilterBarProps) {

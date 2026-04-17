@@ -1,4 +1,4 @@
-export type PriceLevel = 1 | 2 | 3 | 4;
+export type PriceLevel = number;
 
 export interface Restaurant {
   id: string;
@@ -6,7 +6,7 @@ export interface Restaurant {
   photos: string[];
   categories: string[];
   rating: number;
-  price: PriceLevel;
+  price: number;
   isOpen: boolean;
   openHours: string;
   address: string;
@@ -28,5 +28,5 @@ export interface Review {
 export interface RestaurantFilters {
   search?: string;       // server-side: cuisine/category text
   openNow?: boolean;     // client-side
-  prices?: PriceLevel[]; // client-side
+  prices?: number[]; // client-side (array of selected filter IDs)
 }

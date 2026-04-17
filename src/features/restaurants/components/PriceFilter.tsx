@@ -3,19 +3,18 @@ import type { PriceLevel } from "@/domain/types";
 import { WalletCards } from "lucide-react";
 
 interface PriceFilterProps {
-  selected: PriceLevel[];
-  onChange: (next: PriceLevel[]) => void;
+  selected: number[];
+  onChange: (next: number[]) => void;
 }
 
-const LEVELS: { value: PriceLevel; label: string }[] = [
+const LEVELS: { value: number; label: string }[] = [
   { value: 1, label: "Murah" },
   { value: 2, label: "Sedang" },
   { value: 3, label: "Mahal" },
-  { value: 4, label: "Sultan" },
 ];
 
 export function PriceFilter({ selected, onChange }: PriceFilterProps) {
-  const toggle = (lvl: PriceLevel) => {
+  const toggle = (lvl: number) => {
     onChange(selected.includes(lvl) ? selected.filter((l) => l !== lvl) : [...selected, lvl]);
   };
   return (

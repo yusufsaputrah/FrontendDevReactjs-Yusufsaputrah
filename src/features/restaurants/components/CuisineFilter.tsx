@@ -9,8 +9,8 @@ interface CuisineFilterProps {
 export function CuisineFilter({ cuisines, active, onSelect }: CuisineFilterProps) {
   const all = ["All", ...cuisines];
   return (
-    <div className="-mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0">
-      <div className="flex w-max gap-2">
+    <div className="-mx-5 overflow-x-auto px-5 scrollbar-hide sm:mx-0 sm:px-0">
+      <div className="flex w-max gap-2 pb-2">
         {all.map((c) => {
           const isActive = (c === "All" && !active) || c === active;
           return (

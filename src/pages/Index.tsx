@@ -84,7 +84,7 @@ const Index = () => {
 
       <footer className="border-t border-border bg-card">
         <Container className="py-6 text-center text-xs text-muted-foreground">
-          © {new Date().getFullYear()} Tastely. Made for the Frontend Developer technical test.
+          © {new Date().getFullYear()} Tastely. Made for yusuf saputrah.
         </Container>
       </footer>
     </div>

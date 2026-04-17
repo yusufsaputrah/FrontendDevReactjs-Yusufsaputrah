@@ -14,7 +14,7 @@ export function OpenNowToggle({ value, onChange }: OpenNowToggleProps) {
       }
     >
       <Clock className={`h-4 w-4 ${value ? "text-primary" : "text-muted-foreground"}`} />
-      <span className="text-sm font-semibold tracking-wide">Buka Sekarang</span>
+      <span className="text-sm font-semibold tracking-wide">Open Now</span>
       <Switch checked={value} onCheckedChange={onChange} aria-label="Toggle open now filter" className="ml-1" />
     </label>
   );

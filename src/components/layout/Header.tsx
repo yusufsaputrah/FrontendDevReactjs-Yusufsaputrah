@@ -1,8 +1,19 @@
-import { Search, UtensilsCrossed, LogOut } from "lucide-react";
+import { Search, LogOut } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { Container } from "./Container";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 
 interface HeaderProps {
   search: string;
@@ -21,8 +32,8 @@ export function Header({ search, onSearchChange }: HeaderProps) {
     <header className="sticky top-0 z-30 border-b border-border bg-background/85 backdrop-blur">
       <Container className="flex flex-col gap-3 py-3 sm:flex-row sm:items-center sm:justify-between sm:py-4">
         <Link to="/" className="flex items-center gap-2.5">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-hero text-primary-foreground shadow-soft">
-            <UtensilsCrossed className="h-5 w-5" />
+          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-hero text-primary-foreground shadow-soft overflow-hidden p-1.5">
+            <img src="/store.svg" alt="Tastely Logo" className="h-full w-full object-contain" />
           </div>
           <div className="leading-tight">
             <div className="font-display text-xl font-bold text-foreground">Tastely</div>
@@ -41,9 +52,25 @@ export function Header({ search, onSearchChange }: HeaderProps) {
               aria-label="Search restaurants by cuisine"
             />
           </div>
-          <Button variant="ghost" size="icon" onClick={handleLogout} className="rounded-full shrink-0" title="Logout">
-            <LogOut className="h-5 w-5" />
-          </Button>
+          <AlertDialog>
+            <AlertDialogTrigger asChild>
+              <Button variant="ghost" size="icon" className="rounded-full shrink-0" title="Logout">
+                <LogOut className="h-5 w-5" />
+              </Button>
+            </AlertDialogTrigger>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle>Are you sure you want to log out?</AlertDialogTitle>
+                <AlertDialogDescription>
+                  You will need to log in again to access the application.
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogCancel>Cancel</AlertDialogCancel>
+                <AlertDialogAction onClick={handleLogout}>Log out</AlertDialogAction>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
         </div>
       </Container>
     </header>
